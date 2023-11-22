@@ -1,0 +1,21 @@
+{
+    "build": { "dockerfile": "Dockerfile", "context": ".." },
+    "name": "self-loop-paradox",
+     "customizations": {
+      "vscode": {
+        "extensions": ["ms-python.python", "ms-python.vscode-pylance", "ms-toolsai.jupyter"]
+      },  
+      // Add the IDs of extensions you want installed when the container is created.
+      "extensions": [
+        "ms-python.python",
+        "ms-python.vscode-pylance",
+        "ms-toolsai.jupyter",
+      ]
+    },
+    "runArgs": [ 
+      "-it", 
+      "--gpus",
+      "all"
+    ],
+    "remoteEnv": { "PYTHONPATH" : "${containerEnv:PYTHONPATH}:${containerWorkspaceFolder}/src"}
+  }
